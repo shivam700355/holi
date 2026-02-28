@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holi love • Nandini ji</title>
+    <!-- Font Awesome 6 (free) for cute icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Poppins', system-ui, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #f9e3e0 0%, #fbc2d5 40%, #ffe7b0 100%);
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* flying gulal particles (love + holi vibe) */
+        .floating-color {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-color span {
+            position: absolute;
+            display: block;
+            width: 30px;
+            height: 30px;
+            border-radius: 70% 30% 60% 40% / 50% 40% 60% 50%;
+            background: rgba(255, 200, 100, 0.4);
+            box-shadow: 0 0 25px rgba(255, 140, 200, 0.8);
+            filter: blur(4px);
+            animation: floatAround 12s infinite alternate ease-in-out;
+        }
+
+        @keyframes floatAround {
+            0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.4; }
+            100% { transform: translate(40px, -30px) rotate(120deg) scale(1.5); opacity: 0.9; }
+        }
+
+        /* main card */
+        .holi-card {
+            position: relative;
+            z-index: 20;
+            max-width: 1000px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 60px 20px 60px 20px;
+            box-shadow: 0 40px 60px rgba(255, 80, 150, 0.3), 0 0 0 4px rgba(255, 230, 140, 0.6), 0 0 0 10px rgba(255, 255, 255, 0.3);
+            padding: 30px 25px;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            transition: all 0.3s;
+        }
+
+        /* sprinkled hearts & water drops */
+        .decor-dots {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            border-radius: inherit;
+            pointer-events: none;
+        }
+
+        .decor-dots i {
+            position: absolute;
+            font-size: 2rem;
+            color: rgba(255, 120, 160, 0.5);
+            text-shadow: 0 0 8px hotpink;
+            animation: twinkle 5s infinite;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.2; transform: scale(1) rotate(0); }
+            50% { opacity: 1; transform: scale(1.3) rotate(10deg); }
+            100% { opacity: 0.2; transform: scale(1) rotate(0); }
+        }
+
+        /* header section with name */
+        .lovely-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            background: rgba(255, 220, 240, 0.7);
+            border-radius: 100px;
+            padding: 15px 25px;
+            border: 3px dashed #ff80a5;
+            box-shadow: 0 8px 0 #d44e7e;
+        }
+
+        .lovely-header h1 {
+            font-size: 3.2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #c04878, #f0a1c6, #ffdc7a, #ff4d6d);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 3px 3px 0 #fff8cd;
+            letter-spacing: 3px;
+            word-break: break-word;
+        }
+
+        .lovely-header i {
+            font-size: 4rem;
+            color: #ff3b6f;
+            filter: drop-shadow(0 8px 8px #ffb3c6);
+        }
+
+        .sub-message {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 15px 20px;
+            border-radius: 60px;
+            margin: 20px 0 30px;
+            color: #b23b6b;
+            border: 2px solid white;
+            box-shadow: 0 10px 0 #ff96b9;
+            transform: rotate(-1deg);
+            backdrop-filter: blur(5px);
+        }
+
+        .sub-message span {
+            background: #ffec9f;
+            padding: 6px 18px;
+            border-radius: 40px;
+            display: inline-block;
+            margin: 0 6px;
+            color: #b32e5e;
+            font-weight: 800;
+            box-shadow: inset 0 -3px 0 #ffb07c;
+        }
+
+        /* main grid : colors + love */
+        .love-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin: 40px 0 20px;
+        }
+
+        .holi-item {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(4px);
+            border-radius: 50px 20px 50px 20px;
+            padding: 25px 15px;
+            text-align: center;
+            border: 3px solid white;
+            transition: 0.2s ease-in;
+            box-shadow: 0 15px 0 rgba(230, 120, 160, 0.5);
+            cursor: pointer;
+        }
+
+        .holi-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 0 #ff6392;
+            background: #fff6f9;
+        }
+
+        .holi-item i {
+            font-size: 3.8rem;
+            background: linear-gradient(45deg, #f65b5b, #f9c58b, #fb8da0, #bf6f9c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 12px;
+        }
+
+        .holi-item h3 {
+            font-size: 2rem;
+            color: #a13565;
+            font-weight: 700;
+            text-shadow: 2px 2px 0 #ffdbad;
+        }
+
+        .holi-item p {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #871f4b;
+            background: #ffe9f0;
+            padding: 10px;
+            border-radius: 30px;
+            margin-top: 10px;
+        }
+
+        /* special nandini zone */
+        .nandini-zone {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            background: rgba(255, 215, 235, 0.7);
+            border-radius: 70px 20px 70px 20px;
+            padding: 30px 25px;
+            margin: 40px 0 20px;
+            border: 5px dotted #ff99bb;
+            align-items: center;
+            justify-content: space-around;
+            backdrop-filter: blur(5px);
+        }
+
+        .nandini-zone .love-note {
+            font-size: 2.3rem;
+            max-width: 400px;
+        }
+
+        .love-note p {
+            font-weight: 700;
+            color: #b81b5d;
+            background: white;
+            display: inline;
+            padding: 8px 20px;
+            border-radius: 40px;
+            box-shadow: 0 6px 0 #ffb8d2;
+            line-height: 2.2;
+        }
+
+        .love-note .big-text {
+            font-size: 4.3rem;
+            display: block;
+            background: linear-gradient(to right, #ff416c, #ff9a5a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-top: 15px;
+            font-weight: 900;
+        }
+
+        .gulal-heart {
+            font-size: 8rem;
+            filter: drop-shadow(0 10px 10px #f9a8d4);
+            animation: heartbeat 1.2s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            30% { transform: scale(1.2); }
+            50% { transform: scale(1.1); }
+            70% { transform: scale(1.25); }
+            100% { transform: scale(1); }
+        }
+
+        /* gulal color bars */
+        .color-splash {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 25px 0 10px;
+            flex-wrap: wrap;
+        }
+
+        .color-splash div {
+            width: 70px;
+            height: 70px;
+            border-radius: 50% 20% 50% 20%;
+            background: red;
+            animation: splash 3s infinite alternate;
+            border: 3px solid white;
+            box-shadow: 0 0 0 4px rgba(255,255,180,0.8);
+        }
+
+        .color-splash div:nth-child(1) { background: #ff4d6d; animation-delay: 0s; }
+        .color-splash div:nth-child(2) { background: #ffb347; animation-delay: 0.3s; }
+        .color-splash div:nth-child(3) { background: #ffd966; animation-delay: 0.6s; }
+        .color-splash div:nth-child(4) { background: #9ef01a; animation-delay: 0.9s; }
+        .color-splash div:nth-child(5) { background: #a2d2ff; animation-delay: 1.2s; }
+        .color-splash div:nth-child(6) { background: #cdb4db; animation-delay: 1.5s; }
+
+        @keyframes splash {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-30px) rotate(45deg) scale(1.3); }
+        }
+
+        /* footer verse */
+        .footer-love {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1.8rem;
+            background: #ffe5b9;
+            padding: 18px;
+            border-radius: 60px 10px 60px 10px;
+            font-weight: 600;
+            border: 4px solid white;
+            color: #a53860;
+        }
+
+        .footer-love i {
+            color: red;
+            margin: 0 8px;
+        }
+
+        /* small hearts sprinkle */
+        .hearts-prinkle {
+            position: absolute;
+            font-size: 1.5rem;
+            bottom: 10px;
+            right: 20px;
+            opacity: 0.4;
+            rotate: 10deg;
+            z-index: 5;
+        }
+
+        /* responsive */
+        @media (max-width: 600px) {
+            .lovely-header h1 {
+                font-size: 2.4rem;
+            }
+            .sub-message {
+                font-size: 1.5rem;
+            }
+            .gulal-heart {
+                font-size: 5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- floating background colors (gulal) -->
+    <div class="floating-color">
+        <span style="top: 5%; left: 2%; background: #ff80b5; width: 80px; height: 60px;"></span>
+        <span style="top: 70%; left: 90%; background: #ffdb7e; width: 120px; height: 90px; filter: blur(10px);"></span>
+        <span style="top: 20%; left: 70%; background: #b47cff; width: 60px; height: 60px;"></span>
+        <span style="top: 80%; left: 15%; background: #71e3b2; width: 110px; height: 70px;"></span>
+        <span style="top: 45%; left: 45%; background: #ffa07a; width: 150px; height: 130px; opacity: 0.3; filter: blur(30px);"></span>
+    </div>
+
+    <!-- main love website for Nandini ji -->
+    <div class="holi-card">
+        <div class="decor-dots">
+            <i class="fas fa-heart" style="top: 2%; left: 1%;"></i>
+            <i class="fas fa-heart" style="top: 15%; left: 88%;"></i>
+            <i class="fas fa-heart" style="bottom: 10%; right: 5%;"></i>
+            <i class="fas fa-heart" style="bottom: 30%; left: 10%;"></i>
+            <i class="fas fa-tint" style="top: 30%; left: 20%; color: #6ad4ff;"></i>
+            <i class="fas fa-tint" style="bottom: 20%; right: 25%; color: #ffadc6;"></i>
+            <i class="fas fa-star" style="top: 60%; left: 80%; color: gold;"></i>
+        </div>
+
+        <!-- header with her name -->
+        <div class="lovely-header">
+            <i class="fas fa-heart-circle-plus"></i>
+            <h1>🌸 NANDINI JI 🌸</h1>
+            <i class="fas fa-heart-circle-check"></i>
+        </div>
+
+        <!-- sweet sub message -->
+        <div class="sub-message">
+            💖 <span>होली का रंग</span> 💖 <span>तेरे संग</span> 💖
+        </div>
+
+        <!-- color + love offerings (interactive UI) -->
+        <div class="love-grid">
+            <div class="holi-item">
+                <i class="fas fa-cloud-sun"></i>
+                <h3>गुलाल</h3>
+                <p>तेरे गालों पे गुलाल, मेरा प्यार ❤️</p>
+            </div>
+            <div class="holi-item">
+                <i class="fas fa-water"></i>
+                <h3>रंग</h3>
+                <p>इंद्रधनुष सिर्फ तू, Nandini ✨</p>
+            </div>
+            <div class="holi-item">
+                <i class="fas fa-cake-candles"></i>
+                <h3>पिचकारी</h3>
+                <p>भिगो दूँ तुझे प्यार के रंग में 💦</p>
+            </div>
+            <div class="holi-item">
+                <i class="fas fa-heart-pulse"></i>
+                <h3>मस्ती</h3>
+                <p>तेरे बिना होली फीकी ♥️</p>
+            </div>
+        </div>
+
+        <!-- special nandini zone : heart + name pop -->
+        <div class="nandini-zone">
+            <div class="love-note">
+                <p>💕 ये होली है खास</p>
+                <p>💕 क्योंकि तुम हो पास</p>
+                <span class="big-text">NANDINI <3</span>
+            </div>
+            <div class="gulal-heart">
+                <i class="fas fa-heart" style="color: #ff4d80;"></i>
+                <i class="fas fa-heart" style="font-size: 5rem; color: #fbbb2d; position: relative; left: -25px; top: 20px; opacity: 0.7;"></i>
+                <i class="fas fa-heart" style="font-size: 6rem; color: #7ae582; position: relative; left: -45px; top: -10px; opacity: 0.5;"></i>
+            </div>
+        </div>
+
+        <!-- colour splash animated bars (gulal ki barsaat) -->
+        <div class="color-splash">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <!-- romantic footer line with her name -->
+        <div class="footer-love">
+            <i class="fas fa-heart"></i> मेरी होली मेरी जान • नंदिनी जी <i class="fas fa-heart"></i>
+            <div style="font-size: 1.2rem; margin-top: 10px; color: #9d3f6b;">✨ होली मुबारक हो मेरी प्यारी ✨</div>
+        </div>
+
+        <!-- hidden message (just for charm) -->
+        <div style="text-align: right; margin-top: 15px; opacity: 0.7; font-weight: 500; color: #c94778;">
+            <i class="fas fa-feather"></i> built with love for Nandini ji <i class="fas fa-feather"></i>
+        </div>
+    </div>
+
+    <!-- extra floating hearts (right corner) -->
+    <div class="hearts-prinkle">
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-heart"></i>
+    </div>
+
+    <!-- tiny animation for floating hearts (js optional, but we do small interactive) -->
+    <script>
+        (function() {
+            // just for fun: change footer text on click (shower of love)
+            const footerDiv = document.querySelector('.footer-love');
+            if(footerDiv) {
+                footerDiv.addEventListener('click', function() {
+                    const msgs = [
+                        '💖 नंदिनी = मेरी दुनिया 💖',
+                        '💞 रंग बरसे तुझपे प्यार 💞',
+                        '🌸 होली है तू मेरी बहार 🌸',
+                        '✨ मैं हूँ तेरा, तू मेरी होली ✨'
+                    ];
+                    const randomMsg = msgs[Math.floor(Math.random() * msgs.length)];
+                    const originalHTML = footerDiv.innerHTML;
+                    footerDiv.innerHTML = `<i class="fas fa-heart"></i> ${randomMsg} <i class="fas fa-heart"></i><div style="font-size:1rem; margin-top:5px;">❤️ होली मुबारक ❤️</div>`;
+                    setTimeout(() => {
+                        footerDiv.innerHTML = originalHTML;
+                    }, 2500);
+                });
+            }
+
+            // make each holi-item produce a colorful alert (just for cuteness)
+            const items = document.querySelectorAll('.holi-item');
+            items.forEach((item, index) => {
+                item.addEventListener('click', function() {
+                    const colors = ['gulabi', 'peela', 'neela', 'harabhara'];
+                    alert(`🌸 Nandini ji ke liye ${colors[index % colors.length]} rang! 🌸\nI love you meri jaan ❤️`);
+                });
+            });
+
+            // double-click on heart zone changes background spark
+            const heartZone = document.querySelector('.gulal-heart');
+            if(heartZone) {
+                heartZone.addEventListener('dblclick', function() {
+                    document.body.style.background = 'linear-gradient(145deg, #fbc7d5, #ffe48f, #f9b8d4)';
+                    setTimeout(() => {
+                        document.body.style.background = 'linear-gradient(145deg, #f9e3e0 0%, #fbc2d5 40%, #ffe7b0 100%)';
+                    }, 800);
+                });
+            }
+        })();
+    </script>
+    <!-- no external libraries, only font awesome and pure love -->
+</body>
+</html>
