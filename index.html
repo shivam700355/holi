@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>होली टीम फिरंगी · सभी डिवाइस के लिए रंगीला</title>
+    <title>होली टीम फिरंगी · पूरी तरह रिस्पॉन्सिव</title>
     <!-- Bootstrap 5 + Icons (core responsive) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome 6 -->
+    <!-- Font Awesome 6 (free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts: playful but clean -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;600;700;900&family=Fredoka+One&display=swap" rel="stylesheet">
     <style>
-        /* global reset & base */
+        /* global reset & base - ultra responsive */
         * {
             margin: 0;
             padding: 0;
@@ -24,124 +24,129 @@
             font-family: 'Comic Neue', cursive;
             background: #fbe9d2;
             min-height: 100vh;
-            padding: 12px 8px;
-            background-image: radial-gradient(circle at 30% 40%, #ffc085 5%, transparent 20%),
-                              radial-gradient(circle at 80% 70%, #ffb3b3 8%, transparent 25%),
-                              radial-gradient(circle at 10% 80%, #ffe599 10%, transparent 30%);
+            padding: 8px 6px;
+            background-image: radial-gradient(circle at 20% 30%, #ffb27f 8%, transparent 20%),
+                              radial-gradient(circle at 90% 70%, #ffb3b3 10%, transparent 25%),
+                              radial-gradient(circle at 10% 85%, #ffe082 12%, transparent 28%);
             background-attachment: fixed;
         }
 
-        /* main container – fully responsive */
+        /* main container – fully responsive, scales with viewport */
         .holi-responsive-wrap {
             max-width: 1400px;
             margin: 0 auto;
             background: rgba(255, 250, 235, 0.8);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 50px 50px 30px 30px;
-            box-shadow: 0 30px 40px rgba(255, 120, 0, 0.4), 0 0 0 6px #ffa64b, 0 0 0 12px #ff704d;
-            padding: 20px 15px 35px;
-            border: 5px dashed #ff8c1a;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 40px 40px 30px 30px;
+            box-shadow: 0 20px 35px rgba(255, 100, 0, 0.5), 0 0 0 5px #ffa64b, 0 0 0 10px #ff704d;
+            padding: 15px 10px 30px;
+            border: 4px dashed #ff8c1a;
         }
 
-        /* ---------- typography scales for all devices ---------- */
+        /* heading scales with viewport */
         h1 {
             font-family: 'Fredoka One', cursive;
-            font-size: clamp(2.8rem, 12vw, 6rem);
+            font-size: clamp(2.5rem, 10vw, 6rem);
             background: linear-gradient(145deg, #d40000, #ff9900, #aa00aa, #0033ff);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 4px 4px 0 #fff7b0, 8px 8px 15px rgba(255, 100, 0, 0.5);
-            line-height: 1.2;
+            text-shadow: 3px 3px 0 #fff7b0, 5px 5px 15px rgba(255, 100, 0, 0.5);
+            line-height: 1.1;
+            letter-spacing: -0.5px;
         }
 
         .advance-tag {
             background: #2e1c0a;
             color: #ffeaa6;
-            padding: 12px 25px;
-            border-radius: 80px;
-            font-size: clamp(1.6rem, 5vw, 2.6rem);
+            padding: 8px 18px;
+            border-radius: 60px;
+            font-size: clamp(1.4rem, 4.5vw, 2.6rem);
             font-weight: 900;
             display: inline-block;
-            border: 5px solid #ffaa33;
-            box-shadow: 0 12px 0 #a34b00;
-            margin: 15px 0 10px;
+            border: 4px solid #ffaa33;
+            box-shadow: 0 10px 0 #a34b00;
+            margin: 10px 0 5px;
         }
 
         /* leader section */
         .leader-responsive {
             background: radial-gradient(circle at 20% 30%, #ffe373, #ffb347);
-            border-radius: 80px 80px 25px 25px;
-            padding: 20px 15px;
-            border: 7px ridge #ff7700;
-            box-shadow: inset 0 -8px 0 #b35100, 0 18px 25px #ff884d;
+            border-radius: 60px 60px 20px 20px;
+            padding: 15px 12px;
+            border: 6px ridge #ff7700;
+            box-shadow: inset 0 -6px 0 #b35100, 0 15px 20px #ff884d;
             cursor: pointer;
-            margin: 25px 0;
+            margin: 20px 0;
         }
 
-        /* team row – bootstrap makes it responsive, but we add extra love */
+        /* team row – bootstrap enhanced, perfect on all devices */
         .team-row {
             background: linear-gradient(105deg, #ffdbb5, #ffb66b);
-            border-radius: 50px;
-            padding: 15px 12px;
-            margin: 18px 0;
+            border-radius: 40px;
+            padding: 12px 10px;
+            margin: 15px 0;
             border: 4px solid #ff4422;
-            box-shadow: 0 10px 0 #aa3300;
+            box-shadow: 0 8px 0 #aa3300;
             transition: 0.15s;
             align-items: center;
         }
         .team-row:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 14px 0 #b34700, 0 15px 20px #ff7733;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 0 #b34700, 0 12px 18px #ff7733;
         }
 
-        /* flexible badges – using clamp and relative units */
+        /* all badges use clamp and relative units – truly fluid */
         .sn-badge {
             background: #ff3300;
             color: white;
-            border-radius: 50px;
-            padding: 6px 16px;
-            font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+            border-radius: 40px;
+            padding: 5px 12px;
+            font-size: clamp(1.1rem, 3.2vw, 1.8rem);
             font-weight: 900;
             border: 3px solid #ffeb99;
             display: inline-block;
             white-space: nowrap;
+            text-align: center;
         }
         .name-badge {
             background: #fef7d6;
-            padding: 6px 20px;
-            border-radius: 40px;
-            font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+            padding: 5px 15px;
+            border-radius: 35px;
+            font-size: clamp(1.1rem, 3.2vw, 1.8rem);
             font-weight: 700;
-            border: 4px solid #ff8822;
+            border: 3px solid #ff8822;
             box-shadow: inset 0 -3px 0 #b35100;
             display: inline-block;
             white-space: nowrap;
+            text-align: center;
         }
         .desig-badge {
             background: #804515;
             color: white;
-            padding: 6px 18px;
-            border-radius: 40px;
-            font-size: clamp(1.1rem, 3vw, 1.6rem);
+            padding: 5px 12px;
+            border-radius: 35px;
+            font-size: clamp(1rem, 2.8vw, 1.6rem);
             font-weight: 600;
             display: inline-block;
             white-space: nowrap;
+            text-align: center;
         }
         .tagline-click {
             background: linear-gradient(145deg, #f0f, #ff0, #0ff, #f90);
             font-weight: 900;
-            font-size: clamp(1rem, 2.8vw, 1.5rem);
-            padding: 8px 14px;
-            border-radius: 60px;
+            font-size: clamp(0.9rem, 2.6vw, 1.5rem);
+            padding: 6px 10px;
+            border-radius: 50px;
             color: #000;
-            box-shadow: 0 0 0 3px white, 0 7px 0 #b214b2;
+            box-shadow: 0 0 0 3px white, 0 6px 0 #b214b2;
             cursor: pointer;
             transition: 0.1s;
             text-align: center;
             border: 2px solid gold;
             word-break: break-word;
+            line-height: 1.2;
         }
         .tagline-click:active {
             transform: scale(0.96);
@@ -149,44 +154,45 @@
         }
         .status-chip {
             background: #fcaa5e;
-            border-radius: 60px;
-            padding: 6px 18px;
-            font-size: clamp(1.2rem, 3.5vw, 1.8rem);
-            border: 4px solid white;
-            box-shadow: 0 6px 0 #9f4400;
+            border-radius: 50px;
+            padding: 5px 12px;
+            font-size: clamp(1.1rem, 3.2vw, 1.8rem);
+            border: 3px solid white;
+            box-shadow: 0 5px 0 #9f4400;
             display: inline-block;
             white-space: nowrap;
+            text-align: center;
         }
 
         /* summary banner */
         .summary-banner {
             background: #ffcc88;
-            border-radius: 60px;
-            padding: 12px 22px;
-            margin: 25px 0 15px;
-            font-size: clamp(1.3rem, 3.8vw, 2rem);
+            border-radius: 50px;
+            padding: 10px 18px;
+            margin: 20px 0 15px;
+            font-size: clamp(1.2rem, 3.5vw, 2rem);
             font-weight: bold;
-            border: 5px solid #ff5511;
+            border: 4px solid #ff5511;
         }
 
         /* game zone */
         .game-zone {
             background: #ffaa44;
-            border-radius: 70px 70px 20px 20px;
-            padding: 30px 15px;
-            margin-top: 45px;
-            border: 8px ridge #ff5500;
-            box-shadow: inset 0 -8px 0 #aa4000, 0 20px 30px #ffaa33;
+            border-radius: 50px 50px 20px 20px;
+            padding: 25px 12px;
+            margin-top: 35px;
+            border: 6px ridge #ff5500;
+            box-shadow: inset 0 -6px 0 #aa4000, 0 18px 25px #ffaa33;
         }
 
         .game-item {
             background: #fff3c9;
-            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            font-size: clamp(1.3rem, 4vw, 2.2rem);
             font-weight: 900;
-            padding: 15px 8px;
-            border-radius: 70px;
-            border: 5px solid #dd3300;
-            box-shadow: 0 10px 0 #994400;
+            padding: 12px 6px;
+            border-radius: 50px;
+            border: 4px solid #dd3300;
+            box-shadow: 0 7px 0 #994400;
             cursor: pointer;
             transition: 0.1s;
             text-align: center;
@@ -199,16 +205,16 @@
         .super-blast {
             background: #b30059;
             color: white;
-            font-size: clamp(1.6rem, 5vw, 2.8rem);
-            padding: 12px 25px;
-            border-radius: 100px;
-            border: 6px solid #ffd966;
+            font-size: clamp(1.5rem, 4.8vw, 2.8rem);
+            padding: 10px 20px;
+            border-radius: 80px;
+            border: 5px solid #ffd966;
             cursor: pointer;
             display: inline-block;
-            margin-top: 25px;
+            margin-top: 20px;
         }
 
-        /* full color modal – responsive */
+        /* full color modal – completely responsive */
         .full-color-modal {
             display: none;
             position: fixed;
@@ -223,9 +229,9 @@
             flex-direction: column;
             color: white;
             font-weight: 900;
-            text-shadow: 4px 4px 0 #b30059;
+            text-shadow: 3px 3px 0 #b30059;
             cursor: pointer;
-            padding: 20px;
+            padding: 15px;
         }
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
@@ -239,28 +245,50 @@
             background: rgba(0,0,0,0.5);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            padding: 25px 25px;
-            border-radius: 60px;
-            border: 8px solid yellow;
+            padding: 20px 15px;
+            border-radius: 40px;
+            border: 6px solid yellow;
             text-align: center;
-            font-size: clamp(2rem, 7vw, 4.5rem);
-            max-width: 95%;
+            font-size: clamp(1.8rem, 6vw, 4rem);
+            max-width: 98%;
             word-break: break-word;
+            line-height: 1.3;
         }
 
         footer {
             background: #ffbb77;
-            border-radius: 50px;
-            padding: 15px;
-            font-size: clamp(1.4rem, 4vw, 2.2rem);
+            border-radius: 40px;
+            padding: 12px;
+            font-size: clamp(1.3rem, 3.8vw, 2.2rem);
             border: 5px solid #c45c00;
-            margin-top: 35px;
+            margin-top: 30px;
         }
 
-        /* extra small tweaks */
-        @media (max-width: 480px) {
-            .team-row .col-auto, .team-row .col { flex: 0 0 100%; max-width: 100%; }
-            .sn-badge, .name-badge, .desig-badge, .status-chip { white-space: normal; width: 100%; text-align: center; }
+        /* Extra small devices (phones, < 576px) - force full width columns */
+        @media (max-width: 575.98px) {
+            .team-row .col-6 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            .sn-badge, .name-badge, .desig-badge, .status-chip {
+                white-space: normal;
+                width: 100%;
+            }
+            .tagline-click {
+                width: 100%;
+            }
+        }
+
+        /* small to medium devices (landscape phones) */
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            .team-row .col-sm-4 { flex: 0 0 33.333%; max-width: 33.333%; }
+            .team-row .col-sm-8 { flex: 0 0 66.667%; max-width: 66.667%; }
+        }
+
+        /* ensure no overflow */
+        img, svg {
+            max-width: 100%;
+            height: auto;
         }
     </style>
 </head>
@@ -271,7 +299,7 @@
     <div class="modal-content-box" id="modalText">🌸 HAPPY HOLI TEAM! 🌸</div>
 </div>
 
-<div class="container-fluid px-0">
+<div class="container-fluid px-1 px-sm-2 px-md-3">
     <div class="holi-responsive-wrap">
         <!-- header -->
         <div class="text-center">
@@ -281,34 +309,34 @@
             </div>
         </div>
 
-        <!-- TEAM LEADER (responsive, clickable) -->
-        <div class="leader-responsive" onclick="showModal('🌟 TEAM LEADER 🌟<br> Rajani Gupta (Centre Manager) <br> <i class=\'fas fa-crown\'></i> \'रंगों की रानी, सबको लगे पानी\' <br> 🔥 HAPPY HOLI 🔥')">
+        <!-- TEAM LEADER (fully clickable, responsive) -->
+        <div class="leader-responsive" onclick="showModal('🌟 टीम लीडर 🌟<br> Rajani Gupta (Centre Manager) <br> <i class=\'fas fa-crown\'></i> \'रंगों की रानी, सबको लगे पानी\' <br> 🔥 HAPPY HOLI 🔥')">
             <div class="row align-items-center g-2">
-                <div class="col-12 col-md-4 text-center text-md-start mb-2 mb-md-0">
-                    <span class="bg-dark text-warning p-3 d-inline-block rounded-pill fs-4 fw-bold"><i class="fas fa-crown"></i> टीम लीडर</span>
+                <div class="col-12 col-sm-5 col-md-4 col-lg-4 text-center text-sm-start mb-2 mb-sm-0">
+                    <span class="bg-dark text-warning p-2 p-sm-3 d-inline-block rounded-pill fs-6 fs-sm-5 fw-bold"><i class="fas fa-crown"></i> टीम लीडर</span>
                 </div>
-                <div class="col-12 col-md-4 text-center mb-2 mb-md-0">
-                    <span class="bg-light p-3 d-inline-block rounded-pill fs-2 fw-bold border border-4 border-danger">Rajani Gupta</span>
+                <div class="col-12 col-sm-7 col-md-4 col-lg-4 text-center mb-2 mb-sm-0">
+                    <span class="bg-light p-2 p-sm-3 d-inline-block rounded-pill fs-5 fs-sm-4 fw-bold border border-4 border-danger">Rajani Gupta</span>
                 </div>
-                <div class="col-12 col-md-4 text-center">
-                    <span class="badge bg-warning p-3 fs-5">Centre Manager</span>
+                <div class="col-12 col-md-4 col-lg-4 text-center">
+                    <span class="badge bg-warning p-2 p-sm-3 fs-6">Centre Manager</span>
                 </div>
             </div>
-            <div class="row mt-3">
+            <div class="row mt-2 mt-sm-3">
                 <div class="col-12 text-center">
-                    <p class="bg-warning p-3 rounded-pill fs-5 fs-md-4"><i class="fas fa-quote-left"></i> सेंटर मैनेजर रानी, पिचकारी चलाने वाली धानी 🌸</p>
+                    <p class="bg-warning p-2 p-sm-3 rounded-pill fs-6 fs-sm-5"><i class="fas fa-quote-left"></i> सेंटर मैनेजर रानी, पिचकारी चलाने वाली धानी 🌸</p>
                 </div>
             </div>
         </div>
 
-        <!-- ===== TEAM ROSTER (fully responsive rows) ===== -->
+        <!-- ===== TEAM ROSTER – FULLY RESPONSIVE, DEEPANJALI & ANANYA AT END ===== -->
         <!-- 1 Ambesh -->
         <div class="row team-row g-2">
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2"><span class="sn-badge w-100">1️⃣</span></div>
-            <div class="col-6 col-sm-8 col-md-4 col-lg-3 col-xl-3"><span class="name-badge w-100">Ambesh Sharma</span></div>
-            <div class="col-6 col-sm-5 col-md-4 col-lg-3 col-xl-3"><span class="desig-badge w-100">Marketing Mgr</span></div>
-            <div class="col-6 col-sm-4 col-md-5 col-lg-2 col-xl-2"><div class="tagline-click w-100" onclick="showModal('🔥 AMBESH: आग marketing फूंके, रंग में भंग ना डाले! 🔥\n🌸 HAPPY HOLI 🌸')"><i class="fas fa-fire"></i> मार्केटिंग रंग</div></div>
-            <div class="col-6 col-sm-3 col-md-3 col-lg-2 col-xl-2"><span class="status-chip w-100"><i class="fas fa-spray-can"></i> केसरिया</span></div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><span class="sn-badge w-100">1️⃣</span></div>
+            <div class="col-6 col-sm-8 col-md-4 col-lg-3"><span class="name-badge w-100">Ambesh Sharma</span></div>
+            <div class="col-6 col-sm-5 col-md-4 col-lg-3"><span class="desig-badge w-100">Marketing Mgr</span></div>
+            <div class="col-6 col-sm-4 col-md-5 col-lg-2"><div class="tagline-click w-100" onclick="showModal('🔥 AMBESH: आग marketing फूंके, रंग में भंग ना डाले! 🔥\n🌸 HAPPY HOLI 🌸')"><i class="fas fa-fire"></i> मार्केटिंग रंग</div></div>
+            <div class="col-6 col-sm-3 col-md-3 col-lg-2"><span class="status-chip w-100"><i class="fas fa-spray-can"></i> केसरिया</span></div>
         </div>
         <!-- 2 Ashruti -->
         <div class="row team-row g-2">
@@ -358,7 +386,7 @@
             <div class="col-6 col-sm-4 col-md-5 col-lg-2"><div class="tagline-click w-100" onclick="showModal('📚 PRIYA: एडमिशन कराए रंगीन, हर स्टूडेंट दीवानी! 📚\n🌸 HAPPY HOLI 🌸')"><i class="fas fa-door-open"></i> एडमिशन रंग</div></div>
             <div class="col-6 col-sm-3 col-md-3 col-lg-2"><span class="status-chip w-100"><i class="fas fa-phone"></i> वायलेट</span></div>
         </div>
-        <!-- 8 Rajani (listed again as per dataset) -->
+        <!-- 8 Rajani (as per dataset) -->
         <div class="row team-row g-2">
             <div class="col-6 col-sm-4 col-md-3 col-lg-2"><span class="sn-badge w-100">8️⃣</span></div>
             <div class="col-6 col-sm-8 col-md-4 col-lg-3"><span class="name-badge w-100">Rajani Gupta</span></div>
@@ -414,7 +442,7 @@
             <div class="col-6 col-sm-4 col-md-5 col-lg-2"><div class="tagline-click w-100" onclick="showModal('💃 VEDIKA: ऑपरेशन मैनेजर मस्त, रंगों के संग डांस! 💃\n🌸 HAPPY HOLI 🌸')"><i class="fas fa-chart-pie"></i> ऑपरेशन डांस</div></div>
             <div class="col-6 col-sm-3 col-md-3 col-lg-2"><span class="status-chip w-100"><i class="fas fa-chart-simple"></i> मैजेंटा</span></div>
         </div>
-        <!-- 15 DEEPANJALI (last) -->
+        <!-- 15 DEEPANJALI (at end) -->
         <div class="row team-row g-2">
             <div class="col-6 col-sm-4 col-md-3 col-lg-2"><span class="sn-badge w-100">1️⃣5️⃣</span></div>
             <div class="col-6 col-sm-8 col-md-4 col-lg-3"><span class="name-badge w-100">Deepanjali Pal</span></div>
@@ -434,19 +462,19 @@
         <!-- summary banner -->
         <div class="summary-banner d-flex flex-wrap justify-content-between align-items-center">
             <span><i class="fas fa-palette"></i> टीम 1-16 (दीपांजलि & अनन्या अंतिम)</span>
-            <span class="badge bg-warning p-3 fs-5">🔥 रंग बरसे 🔥</span>
+            <span class="badge bg-warning p-2 p-sm-3 fs-6">🔥 रंग बरसे 🔥</span>
         </div>
 
         <!-- GAME ZONE (responsive grid) -->
         <div class="game-zone text-center">
-            <h3 class="display-6 fw-bold bg-warning p-3 rounded-pill d-inline-block px-4"><i class="fas fa-water"></i> होली गेम</h3>
-            <div class="row g-3 mt-4 justify-content-center">
+            <h3 class="display-6 fw-bold bg-warning p-2 p-sm-3 rounded-pill d-inline-block px-3 px-sm-5"><i class="fas fa-water"></i> होली गेम</h3>
+            <div class="row g-2 g-sm-3 mt-4 justify-content-center">
                 <div class="col-6 col-sm-6 col-md-3"><div class="game-item" onclick="showModal('🔥 BHANG KE LADOO SPLASH! पूरी टीम पर रंग 🔥')"><i class="fas fa-candy-cane"></i> भंग लड्डू</div></div>
                 <div class="col-6 col-sm-6 col-md-3"><div class="game-item" onclick="showModal('🔫 PICHKARI FIRING START! ऐसा रंग कि दिमाग घूमे! 🔫')"><i class="fas fa-gun"></i> पिचकारी बम</div></div>
                 <div class="col-6 col-sm-6 col-md-3"><div class="game-item" onclick="showModal('💣 गुब्बारे फोड़ो – रंग बरसाओ! 💣')"><i class="fas fa-balloon"></i> गुब्बारा रंग</div></div>
                 <div class="col-6 col-sm-6 col-md-3"><div class="game-item" onclick="showModal('🥤 ठंडाई पी के रंग में डूबो! 🥤')"><i class="fas fa-mug-hot"></i> ठंडाई ब्लास्ट</div></div>
             </div>
-            <div class="mt-5">
+            <div class="mt-4 mt-sm-5">
                 <div class="super-blast" onclick="showModal('🌸🌸 HAPPY HOLI IN ADVANCED! TEAM FIRANGI 🌸🌸')">
                     💥 FULL COLOUR MODAL: HAPPY HOLI 💥
                 </div>
@@ -459,13 +487,13 @@
     </div>
 </div>
 
-<!-- Bootstrap JS (optional for toggles) -->
+<!-- Bootstrap JS (optional but good for toggles) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     function showModal(text) {
         const modal = document.getElementById('fullColorModal');
         const modalText = document.getElementById('modalText');
-        modalText.innerHTML = text + '<br><span style="font-size:clamp(1.4rem, 4vw, 2.5rem); margin-top:15px; display:block;">✨ कहीं भी दबाएँ ✨</span>';
+        modalText.innerHTML = text + '<br><span style="font-size:clamp(1.2rem, 4vw, 2.2rem); margin-top:15px; display:block;">✨ कहीं भी दबाएँ ✨</span>';
         modal.classList.add('show');
     }
     // close modal on click anywhere (already on modal div)
