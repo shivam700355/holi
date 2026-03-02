@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOLI BLAST 🔥 TEAM FIRANGI</title>
-    <!-- Google Fonts & Icons -->
+    <title>HOLI · TEAM FIRANGI · responsive + clean</title>
+    <!-- Bootstrap 5 + icons (official) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts for fun style -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700;900&family=Fredoka+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -18,272 +21,203 @@
 
         body {
             font-family: 'Comic Neue', cursive;
-            background: #0d0a00;
+            background: linear-gradient(145deg, #fff0d4 0%, #ffcd94 100%);
             min-height: 100vh;
-            overflow-x: hidden;
+            padding: 20px 10px;
             position: relative;
-            padding: 16px 8px;
         }
 
-        /* ===== AUTO COLOR FIRE BOOM ANIMATION (continuous) ===== */
-        .fire-boom {
+        /* ---------- subtle background colors (no boom, just static color layers) ---------- */
+        .color-bg-static {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             pointer-events: none;
             z-index: 0;
-            overflow: hidden;
+            opacity: 0.4;
+            background: radial-gradient(circle at 30% 40%, #ffa07a 0%, transparent 30%),
+                        radial-gradient(circle at 80% 70%, #ffd966 0%, transparent 35%),
+                        radial-gradient(circle at 10% 80%, #ffb3c6 0%, transparent 40%),
+                        radial-gradient(circle at 60% 20%, #b6ff9e 0%, transparent 45%);
         }
 
-        .boom-particle {
-            position: absolute;
-            bottom: -30px;
-            width: 40px;
-            height: 40px;
-            background: radial-gradient(circle, #ff9933, #ff3300);
-            border-radius: 50% 0 50% 50%;
-            transform: rotate(45deg) scale(1);
-            box-shadow: 0 0 70px #ffaa33, 0 0 120px #ff2200;
-            animation: boomFly 5s linear infinite, colorBang 0.8s infinite alternate;
-            opacity: 0.7;
-        }
-
-        .boom-particle:nth-child(1) { left: 2%; width: 60px; height: 60px; animation-duration: 7s; background: #ff44aa; }
-        .boom-particle:nth-child(2) { left: 12%; width: 30px; height: 30px; animation-duration: 6s; animation-delay: 0.5s; background: #ffaa00; }
-        .boom-particle:nth-child(3) { left: 22%; width: 80px; height: 80px; animation-duration: 9s; animation-delay: 1s; background: #ff0055; }
-        .boom-particle:nth-child(4) { left: 35%; width: 45px; height: 45px; animation-duration: 5.5s; background: #ff9900; }
-        .boom-particle:nth-child(5) { left: 48%; width: 100px; height: 100px; animation-duration: 11s; animation-delay: 2s; background: #ff44cc; }
-        .boom-particle:nth-child(6) { left: 60%; width: 55px; height: 55px; animation-duration: 8s; background: #ffaa22; }
-        .boom-particle:nth-child(7) { left: 72%; width: 70px; height: 70px; animation-duration: 10s; animation-delay: 1.2s; background: #ff2266; }
-        .boom-particle:nth-child(8) { left: 85%; width: 40px; height: 40px; animation-duration: 6.8s; background: #ffaa55; }
-        .boom-particle:nth-child(9) { left: 92%; width: 90px; height: 90px; animation-duration: 12s; animation-delay: 0.3s; background: #ff0055; }
-        .boom-particle:nth-child(10) { left: 45%; width: 140px; height: 140px; animation-duration: 15s; animation-delay: 2.5s; background: #ff8800; }
-        .boom-particle:nth-child(11) { left: 18%; width: 50px; height: 50px; animation-duration: 7.7s; background: #ee44ff; }
-        .boom-particle:nth-child(12) { left: 78%; width: 65px; height: 65px; animation-duration: 9.3s; background: #ffaa33; }
-
-        @keyframes boomFly {
-            0% { transform: rotate(45deg) translateY(0) scale(1); opacity: 0.8; }
-            100% { transform: rotate(45deg) translateY(-130vh) scale(3); opacity: 0; }
-        }
-        @keyframes colorBang {
-            0% { filter: hue-rotate(0deg); box-shadow: 0 0 50px #ffaa00, 0 0 100px #ff2200; }
-            100% { filter: hue-rotate(120deg); box-shadow: 0 0 90px #ff00aa, 0 0 180px #4400ff; }
-        }
-
-        /* floating gulal clouds */
-        .gulal-cloud {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-        .gulal-cloud i {
-            position: absolute;
-            font-size: 5rem;
-            opacity: 0.3;
-            animation: cloudMove 18s infinite alternate;
-            color: #ff66b2;
-        }
-        .gulal-cloud i:nth-child(1) { top: 15%; left: 5%; color: #ff3388; animation-duration: 20s; }
-        .gulal-cloud i:nth-child(2) { top: 70%; left: 80%; color: #66ff66; animation-duration: 25s; }
-        .gulal-cloud i:nth-child(3) { top: 30%; left: 70%; color: #ffcc00; animation-duration: 16s; }
-        .gulal-cloud i:nth-child(4) { top: 80%; left: 15%; color: #aa66ff; animation-duration: 22s; }
-
-        @keyframes cloudMove {
-            0% { transform: translate(0,0) rotate(0); opacity: 0.15; }
-            100% { transform: translate(80px, -50px) rotate(30deg); opacity: 0.6; }
-        }
-
-        /* ===== MAIN UI ===== */
-        .holi-blast-wrap {
-            max-width: 1300px;
-            margin: 0 auto;
-            background: rgba(255, 245, 220, 0.75);
-            backdrop-filter: blur(12px);
-            border-radius: 90px 90px 40px 40px;
-            box-shadow: 0 40px 60px #ff6600, 0 0 0 10px #ffbb33, 0 0 0 18px #ff5050;
-            padding: 20px 20px 40px;
+        /* main container uses bootstrap row/col, but with fun wrap */
+        .holi-card {
+            background: rgba(255, 250, 235, 0.8);
+            backdrop-filter: blur(8px);
+            border-radius: 70px 70px 30px 30px;
+            box-shadow: 0 30px 40px rgba(255, 100, 0, 0.4), 0 0 0 8px #ffb347, 0 0 0 16px #ff6f4a;
+            padding: 25px 18px 35px;
             position: relative;
-            z-index: 20;
-            border: 8px dashed #ffaa22;
+            z-index: 10;
+            border: 6px dashed #ff8822;
         }
 
         /* header */
-        .blast-header {
+        .blast-head {
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
-        .blast-header h1 {
+        .blast-head h1 {
             font-family: 'Fredoka One', cursive;
-            font-size: 5.8rem;
-            background: linear-gradient(45deg, #ff0000, #ff9900, #ffff00, #33ff33, #33ffff, #3366ff, #cc33ff);
+            font-size: 4rem;
+            background: linear-gradient(45deg, #d40000, #ff9900, #cc00cc, #0033ff);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 8px 8px 0 #fff7b0, 0 20px 30px #ff6600;
-            animation: blastShake 2.3s infinite;
+            text-shadow: 6px 6px 0 #fff3b0;
         }
-        @keyframes blastShake {
-            0%,100% { transform: rotate(0deg) scale(1); }
-            25% { transform: rotate(3deg) scale(1.07); }
-            50% { transform: rotate(-3deg) scale(1.12); }
-        }
-
-        .advance-tag {
-            background: #2e1c0a;
+        .advance-badge {
+            background: #2f1d0b;
+            color: #ffeaa6;
+            padding: 15px 45px;
+            border-radius: 100px;
+            font-size: 2.2rem;
+            font-weight: 900;
             display: inline-block;
-            padding: 20px 70px;
-            border-radius: 120px;
-            font-size: 2.7rem;
-            font-weight: 900;
-            color: #fbe68c;
-            border: 7px solid #ffaa22;
-            box-shadow: 0 18px 0 #a34b00;
-            margin: 20px 0;
-        }
-        .advance-tag span {
-            background: linear-gradient(145deg, #ffaa66, #ffd966);
-            padding: 6px 40px;
-            border-radius: 80px;
-            color: #331d00;
+            border: 5px solid #ffaa33;
+            box-shadow: 0 15px 0 #a34b00;
+            margin-top: 10px;
         }
 
-        /* LEADER SECTION (on click full modal for tagline) */
-        .leader-mega {
-            background: radial-gradient(circle at 10% 30%, #ffe68f, #ff9933);
-            border-radius: 150px 150px 40px 40px;
+        /* leader section */
+        .leader-block {
+            background: radial-gradient(circle at 10% 30%, #ffe484, #ffb259);
+            border-radius: 120px 120px 30px 30px;
             padding: 25px 25px 15px;
-            margin: 20px 0 30px;
-            border: 8px ridge #ff8800;
-            box-shadow: inset 0 -12px 0 #b35100, 0 25px 35px #ff884d;
+            border: 8px ridge #ff7700;
+            box-shadow: inset 0 -8px 0 #b35100, 0 20px 25px #ff9966;
             cursor: pointer;
-            transition: 0.2s;
-        }
-        .leader-mega:active { transform: scale(0.99); }
-        .leader-flex {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-        .leader-flex h2 {
-            font-size: 3.5rem;
-            background: #962d0e;
-            padding: 10px 50px;
-            border-radius: 80px;
-            color: #fad173;
-            border: 5px solid gold;
-        }
-        .leader-name-big {
-            background: #fff0b5;
-            border-radius: 100px;
-            padding: 20px 60px;
-            font-size: 2.8rem;
-            font-weight: 900;
-            border: 6px solid red;
-            box-shadow: 0 14px 0 #a52a2a;
+            margin: 30px 0;
         }
 
-        /* ===== team row design (full color) ===== */
+        /* team row card (bootstrap row inside) */
         .team-row {
-            background: linear-gradient(95deg, #ffd89a, #ffb06f);
-            border-radius: 100px;
-            margin: 18px 0;
-            padding: 18px 25px;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
+            background: linear-gradient(105deg, #ffdbb5, #ffb66b);
+            border-radius: 60px;
+            padding: 18px 18px;
+            margin: 20px 0;
             border: 5px solid #ff4422;
-            box-shadow: 0 12px 0 #aa3300, 0 15px 15px #ff9966;
+            box-shadow: 0 12px 0 #aa3300;
             transition: 0.1s;
+            align-items: center;
         }
         .team-row:hover {
-            transform: scale(1.02) translateY(-6px);
-            background: #ffe29c;
-            box-shadow: 0 18px 0 #b34700, 0 25px 25px #ff7733;
+            transform: translateY(-5px);
+            box-shadow: 0 18px 0 #b34700, 0 15px 20px #ff7733;
         }
 
-        .row-left {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 20px;
-            font-size: 2rem;
-            font-weight: 700;
-        }
+        /* badges & info */
         .sn-badge {
             background: #ff3300;
             color: white;
-            border-radius: 60px;
-            padding: 10px 30px;
-            font-size: 2.2rem;
+            border-radius: 50px;
+            padding: 8px 18px;
+            font-size: 1.5rem;
+            font-weight: 900;
+            display: inline-block;
             border: 3px solid #ffeb99;
+            white-space: nowrap;
         }
         .name-badge {
             background: #fef7d6;
-            padding: 10px 35px;
-            border-radius: 60px;
+            padding: 8px 25px;
+            border-radius: 40px;
+            font-size: 1.5rem;
+            font-weight: 700;
             border: 4px solid #ff8822;
-            box-shadow: inset 0 -4px 0 #b35100;
+            box-shadow: inset 0 -3px 0 #b35100;
+            white-space: nowrap;
         }
         .desig-badge {
             background: #804515;
             color: white;
-            border-radius: 60px;
-            padding: 10px 30px;
-            font-size: 1.8rem;
+            padding: 8px 22px;
+            border-radius: 40px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            white-space: nowrap;
         }
 
-        /* tagline clickable -> full modal color */
-        .tagline-modal-trigger {
+        /* tagline pill (clickable) */
+        .tagline-click {
             background: linear-gradient(145deg, #f0f, #ff0, #0ff, #f90);
             font-weight: 900;
-            font-size: 1.7rem;
-            padding: 12px 40px;
-            border-radius: 80px;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border-radius: 60px;
             color: #000;
-            box-shadow: 0 0 0 4px white, 0 14px 0 #c214c2;
+            box-shadow: 0 0 0 4px white, 0 8px 0 #c214c2;
             cursor: pointer;
             transition: 0.1s;
-            max-width: 550px;
-            min-width: 300px;
             text-align: center;
             border: 2px solid gold;
+            word-break: break-word;
         }
-        .tagline-modal-trigger:active {
-            transform: scale(0.95);
+        .tagline-click:active {
+            transform: scale(0.97);
             box-shadow: 0 4px 0 #aa22ff;
         }
 
-        /* status chip */
         .status-chip {
             background: #fcaa5e;
-            border-radius: 70px;
-            padding: 10px 35px;
-            font-size: 2rem;
+            border-radius: 60px;
+            padding: 8px 22px;
+            font-size: 1.5rem;
             border: 4px solid white;
-            box-shadow: 0 9px 0 #9f4400;
+            box-shadow: 0 7px 0 #9f4400;
+            white-space: nowrap;
         }
 
-        /* entries summary */
+        /* summary banner */
         .summary-banner {
             background: #ffcc88;
             border-radius: 80px;
-            padding: 16px 40px;
-            margin: 30px 0 15px;
-            font-size: 2.2rem;
+            padding: 14px 25px;
+            margin: 30px 0 10px;
+            font-size: 1.6rem;
             font-weight: bold;
             border: 5px solid #ff5511;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
         }
 
-        /* ===== MODAL (full color, appears on tagline click) ===== */
+        /* game zone */
+        .game-zone-clean {
+            background: #ffaa44;
+            border-radius: 100px 100px 30px 30px;
+            padding: 30px 20px;
+            margin-top: 50px;
+            border: 8px ridge #ff5500;
+            box-shadow: inset 0 -8px 0 #aa4000, 0 25px 30px #ffaa33;
+        }
+
+        .game-item {
+            background: #fff3c9;
+            font-size: 1.8rem;
+            font-weight: 900;
+            padding: 20px 15px;
+            border-radius: 80px;
+            border: 6px solid #dd3300;
+            box-shadow: 0 12px 0 #994400;
+            cursor: pointer;
+            transition: 0.1s;
+            text-align: center;
+        }
+        .game-item:active {
+            transform: scale(0.95);
+            background: #ffe39f;
+        }
+
+        .super-blast-btn {
+            background: #b30059;
+            color: white;
+            font-size: 2.2rem;
+            padding: 15px 30px;
+            border-radius: 120px;
+            border: 6px solid #ffd966;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        /* FULL COLOR MODAL (hidden by default) */
         .full-color-modal {
             display: none;
             position: fixed;
@@ -291,261 +225,265 @@
             width: 100%; height: 100%;
             background: linear-gradient(45deg, #ff0066, #ff6600, #ffcc00, #33ff99, #33ccff, #9933ff);
             background-size: 400% 400%;
-            animation: gradientFlow 2s ease infinite, boomMini 0.5s;
+            animation: gradientFlow 2s ease infinite;
             z-index: 9999;
             align-items: center;
             justify-content: center;
             flex-direction: column;
             color: white;
-            font-size: 5rem;
+            font-size: 4rem;
             font-weight: 900;
-            text-shadow: 10px 10px 0 #b30059;
+            text-shadow: 6px 6px 0 #b30059;
             cursor: pointer;
-            padding: 30px;
+            padding: 20px;
         }
         @keyframes gradientFlow {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-        @keyframes boomMini {
-            0% { transform: scale(0.5); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
         .full-color-modal.show {
             display: flex;
         }
-        .modal-content {
+        .modal-content-box {
             background: rgba(0,0,0,0.5);
-            backdrop-filter: blur(15px);
-            padding: 40px 90px;
-            border-radius: 200px;
-            border: 12px solid yellow;
-            text-align: center;
-            font-size: 5rem;
-            box-shadow: 0 0 100px gold;
-        }
-        .modal-content i { font-size: 7rem; margin: 20px; }
-
-        /* game zone */
-        .game-zone-blast {
-            background: #ffaa44;
-            border-radius: 200px 200px 40px 40px;
-            padding: 40px 20px;
-            margin-top: 60px;
-            border: 10px ridge #ff5500;
-            box-shadow: inset 0 -15px 0 #aa4000, 0 30px 35px #ffaa33;
-            text-align: center;
-        }
-        .game-zone-blast h3 {
-            font-size: 4rem;
-            background: #fae074;
-            display: inline-block;
-            padding: 5px 80px;
+            backdrop-filter: blur(12px);
+            padding: 30px 40px;
             border-radius: 120px;
-            border: 6px solid #b35100;
-        }
-        .game-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-            margin: 40px 0;
-        }
-        .game-card-blast {
-            background: #fff3c9;
-            font-size: 2.7rem;
-            font-weight: 900;
-            padding: 30px 35px;
-            border-radius: 120px;
-            border: 7px solid #dd3300;
-            box-shadow: 0 22px 0 #994400, 0 25px 30px #b34700;
-            min-width: 240px;
-        }
-        .game-card-blast:active { transform: scale(0.9); background: #ffe39f; }
-
-        .super-blast {
-            background: #b30059;
-            color: white;
+            border: 10px solid yellow;
+            text-align: center;
             font-size: 3rem;
-            padding: 20px 80px;
-            border-radius: 200px;
-            display: inline-block;
-            border: 8px solid #ffd966;
-            animation: blastPop 1.2s infinite;
+            max-width: 90%;
         }
-        @keyframes blastPop {
-            0% { transform: scale(1); background: #cc0066; }
-            50% { transform: scale(1.2); background: #ff6600; }
+
+        /* responsive fixes */
+        @media (max-width: 768px) {
+            .blast-head h1 { font-size: 3rem; }
+            .advance-badge { font-size: 1.6rem; padding: 10px 25px; }
+            .team-row .col-auto { margin-bottom: 8px; }
+            .name-badge, .desig-badge, .sn-badge { font-size: 1.2rem; white-space: normal; }
+            .tagline-click { font-size: 1rem; }
         }
 
         footer {
-            text-align: center;
-            font-size: 2.5rem;
             background: #ffbb77;
-            padding: 25px;
-            border-radius: 80px;
-            margin-top: 40px;
+            border-radius: 60px;
+            padding: 18px;
+            font-size: 1.8rem;
             border: 6px solid #c45c00;
+            margin-top: 40px;
         }
     </style>
 </head>
 <body>
 
-<!-- AUTO COLOR FIRE BOOM ANIMATION (continuous) -->
-<div class="fire-boom">
-    <div class="boom-particle"></div><div class="boom-particle"></div><div class="boom-particle"></div><div class="boom-particle"></div><div class="boom-particle"></div><div class="boom-particle"></div><div class="boom-particle"></div><div class="boom-particle"></div><div class="boom-particle"></div><div class="boom-particle"></div><div class="boom-particle"></div><div class="boom-particle"></div>
-</div>
-<div class="gulal-cloud">
-    <i class="fas fa-palette"></i><i class="fas fa-burst"></i><i class="fas fa-spray-can-sparkles"></i><i class="fas fa-cloud"></i>
-</div>
+<!-- static color background (no boom animations) -->
+<div class="color-bg-static"></div>
 
-<!-- FULL COLOR MODAL (hidden by default) -->
+<!-- FULL COLOR MODAL (hidden) -->
 <div id="fullColorModal" class="full-color-modal" onclick="this.classList.remove('show')">
-    <div class="modal-content" id="modalText">
-        🌸 HAPPY HOLI IN ADVANCED! 🌸
+    <div class="modal-content-box" id="modalText">
+        🌸 HAPPY HOLI TEAM! 🌸
     </div>
 </div>
 
-<div class="holi-blast-wrap">
-    <!-- header with advanced happy holi -->
-    <div class="blast-header">
-        <h1>🔥 FIRANGI HOLI BLAST 🔥</h1>
-        <div class="advance-tag">
-            <span><i class="fas fa-sparkles"></i> HAPPY HOLI IN ADVANCED! <i class="fas fa-sparkles"></i></span>
+<div class="container">
+    <div class="holi-card">
+        <!-- header -->
+        <div class="blast-head">
+            <h1>🌈 FIRANGI HOLI 🌈</h1>
+            <div class="advance-badge">
+                <i class="fas fa-sparkles"></i> HAPPY HOLI IN ADVANCED <i class="fas fa-sparkles"></i>
+            </div>
         </div>
-    </div>
 
-    <!-- TEAM LEADER (click full color modal for tagline) -->
-    <div class="leader-mega" onclick="showModal('🌟 TEAM LEADER 🌟<br> Rajani Gupta (Centre Manager) <br> <i class=\'fas fa-crown\'></i> \'रंगों की रानी, सबको लगे पानी\' <br> 🔥 HAPPY HOLI ADVANCED 🔥')">
-        <div class="leader-flex">
-            <h2><i class="fas fa-crown" style="color:gold;"></i> TEAM LEADER (click for full color)</h2>
-            <span class="leader-name-big"><i class="fas fa-star"></i> Rajani Gupta <i class="fas fa-star"></i></span>
+        <!-- TEAM LEADER (click for full color modal) -->
+        <div class="leader-block" onclick="showModal('🌟 TEAM LEADER 🌟<br> Rajani Gupta (Centre Manager) <br> <i class=\'fas fa-crown\'></i> \'रंगों की रानी, सबको लगे पानी\' <br> 🔥 HAPPY HOLI ADVANCED 🔥')">
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center text-md-start">
+                    <h2 class="bg-dark text-warning p-3 rounded-pill"><i class="fas fa-crown text-warning"></i> TEAM LEADER</h2>
+                </div>
+                <div class="col-md-4 text-center my-2">
+                    <span class="bg-light p-3 rounded-pill fs-1 fw-bold border border-4 border-danger">Rajani Gupta</span>
+                </div>
+                <div class="col-md-4 text-center">
+                    <span class="badge bg-warning p-3 fs-4">Centre Manager</span>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12">
+                    <p class="bg-warning p-3 rounded-pill fs-3"><i class="fas fa-quote-left"></i> सेंटर मैनेजर रानी, पिचकारी चलाने वाली धानी 🌸</p>
+                </div>
+            </div>
         </div>
-        <div style="font-size:2.5rem; background:#ffd98c; border-radius:80px; margin-top:20px; padding:20px;">
-            <i class="fas fa-quote-left"></i> सेंटर मैनेजर रानी, पिचकारी चलाने वाली धानी 🌸
+
+        <!-- TEAM MEMBERS (with Deepanjali & Ananya at end) -->
+        <!-- 1 Ambesh -->
+        <div class="row team-row g-2">
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="sn-badge">1️⃣</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="name-badge">Ambesh Sharma</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="desig-badge">Marketing Manager</span></div>
+            <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-auto"><div class="tagline-click" onclick="showModal('🔥 AMBESH: आग marketing फूंके, रंग में भंग ना डाले! 🔥\n🌸 HAPPY HOLI 🌸')"><i class="fas fa-fire"></i> मार्केटिंग रंग</div></div>
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="status-chip"><i class="fas fa-spray-can"></i> केसरिया</span></div>
         </div>
-    </div>
-
-    <!-- TEAM LIST (Deepanjali and Ananya at the end) 
-         Original order: 1 Ambesh,2 Ashruti,3 Ashutosh,4 Divya,5 Nandani,6 Pooja,7 Priya,8 Rajani,9 Rashmi,10 Sharry,11 Shivam,12 Shubhangi,13 Sonali,14 Vedika,15 Deepanjali,16 Ananya  (skip 7 & 11 but keep numbering fun) -->
-    <div class="team-row">
-        <div class="row-left"><span class="sn-badge">1️⃣</span><span class="name-badge">Ambesh Sharma</span><span class="desig-badge">Marketing Manager</span></div>
-        <div class="tagline-modal-trigger" onclick="showModal('🔥 AMBESH: आग marketing फूंके, रंग में भंग ना डाले! 🔥\n🌸 HAPPY HOLI ADVANCED 🌸')"><i class="fas fa-fire"></i> मार्केटिंग में रंग बरपा दे</div>
-        <span class="status-chip"><i class="fas fa-spray-can"></i> केसरिया</span>
-    </div>
-    <div class="team-row">
-        <div class="row-left"><span class="sn-badge">2️⃣</span><span class="name-badge">Ashruti Pradhan</span><span class="desig-badge">Digital Marketing Manager</span></div>
-        <div class="tagline-modal-trigger" onclick="showModal('🌈 ASHRUTI: डिजिटल रंगों की धूम, हर campaign में gulal खूब! 🌈\n🌸 HAPPY HOLI ADVANCED 🌸')"><i class="fas fa-chart-line"></i> कैंपेन में गुलाल उड़ाए</div>
-        <span class="status-chip"><i class="fas fa-bolt"></i> नीला</span>
-    </div>
-    <div class="team-row">
-        <div class="row-left"><span class="sn-badge">3️⃣</span><span class="name-badge">Ashutosh kumar Rawat</span><span class="desig-badge">BD manager</span></div>
-        <div class="tagline-modal-trigger" onclick="showModal('🧡 ASHUTOSH: बिज़नेस रंग दे केसरिया, होली में कर दे धमाल! 🧡\n🌸 HAPPY HOLI ADVANCED 🌸')"><i class="fas fa-handshake"></i> बिज़नेस में रंग भरे</div>
-        <span class="status-chip"><i class="fas fa-leaf"></i> केसरी</span>
-    </div>
-    <div class="team-row">
-        <div class="row-left"><span class="sn-badge">4️⃣</span><span class="name-badge">Divya Tiwari</span><span class="desig-badge">Senior Counselor</span></div>
-        <div class="tagline-modal-trigger" onclick="showModal('💬 DIVYA: सीनियर काउंसलर रंग बिखेरे, हर समस्या दूर भगाए! 💬\n🌸 HAPPY HOLI ADVANCED 🌸')"><i class="fas fa-comment-dots"></i> काउंसलिंग में रंग</div>
-        <span class="status-chip"><i class="fas fa-star"></i> सुनहरा</span>
-    </div>
-    <div class="team-row">
-        <div class="row-left"><span class="sn-badge">5️⃣</span><span class="name-badge">Nandani Vishwakarma</span><span class="desig-badge">Operation Exclusive</span></div>
-        <div class="tagline-modal-trigger" onclick="showModal('⚙️ NANDANI: ऑपरेशन में रंग बरसे, exclusive तरीके से छाए! ⚙️\n🌸 HAPPY HOLI ADVANCED 🌸')"><i class="fas fa-gears"></i> ऑपरेशन रंगीन</div>
-        <span class="status-chip"><i class="fas fa-cog"></i> सिल्वर</span>
-    </div>
-    <div class="team-row">
-        <div class="row-left"><span class="sn-badge">6️⃣</span><span class="name-badge">Pooja Verma</span><span class="desig-badge">Software Engineer</span></div>
-        <div class="tagline-modal-trigger" onclick="showModal('🐞 POOJA: सॉफ्टवेयर संग खेले होली, बग को मारे गुलाल की गोली! 🐞\n🌸 HAPPY HOLI ADVANCED 🌸')"><i class="fas fa-terminal"></i> कोड में रंग भरे</div>
-        <span class="status-chip"><i class="fas fa-crown"></i> pink glitter</span>
-    </div>
-    <div class="team-row">
-        <div class="row-left"><span class="sn-badge">7️⃣</span><span class="name-badge">Priya Pal</span><span class="desig-badge">Admission counselor</span></div>
-        <div class="tagline-modal-trigger" onclick="showModal('📚 PRIYA: एडमिशन कराए रंगीन, हर स्टूडेंट दे दीवानी! 📚\n🌸 HAPPY HOLI ADVANCED 🌸')"><i class="fas fa-door-open"></i> एडमिशन गुलाल</div>
-        <span class="status-chip"><i class="fas fa-phone"></i> वायलेट</span>
-    </div>
-    <div class="team-row">
-        <div class="row-left"><span class="sn-badge">8️⃣</span><span class="name-badge">Rajani Gupta</span><span class="desig-badge">Centre Manager</span></div>
-        <div class="tagline-modal-trigger" onclick="showModal('👑 RAJANI (LEADER): सेंटर मैनेजर रानी, सबको लगे पानी-पानी! 👑\n🌸 HAPPY HOLI ADVANCED 🌸')"><i class="fas fa-chess-queen"></i> टीम की रानी</div>
-        <span class="status-chip"><i class="fas fa-building"></i> लाल</span>
-    </div>
-    <div class="team-row">
-        <div class="row-left"><span class="sn-badge">9️⃣</span><span class="name-badge">Rashmi Tripathi</span><span class="desig-badge">Tele Caller</span></div>
-        <div class="tagline-modal-trigger" onclick="showModal('📞 RASHMI: टेली पर बरसे रंग, कॉल पर ही उड़े गुलाल! 📞\n🌸 HAPPY HOLI ADVANCED 🌸')"><i class="fas fa-phone-alt"></i> टेली रंग</div>
-        <span class="status-chip"><i class="fas fa-phone"></i> पीला</span>
-    </div>
-    <div class="team-row">
-        <div class="row-left"><span class="sn-badge">🔟</span><span class="name-badge">Sharry Saluja</span><span class="desig-badge">Academic Counselor</span></div>
-        <div class="tagline-modal-trigger" onclick="showModal('🎓 SHARRY: एकेडमिक रंग दिखाए, हर छात्र को रंग में लाए! 🎓\n🌸 HAPPY HOLI ADVANCED 🌸')"><i class="fas fa-graduation-cap"></i> एकेडमिक रंग</div>
-        <span class="status-chip"><i class="fas fa-book"></i> नीला</span>
-    </div>
-    <div class="team-row">
-        <div class="row-left"><span class="sn-badge">1️⃣1️⃣</span><span class="name-badge">Shivam Maurya</span><span class="desig-badge">Software Engineer</span></div>
-        <div class="tagline-modal-trigger" onclick="showModal('👨‍💻 SHIVAM: एंजिनियर का रंग निराला, कोड में बहता गुलाला! 👨‍💻\n🌸 HAPPY HOLI ADVANCED 🌸')"><i class="fas fa-microchip"></i> कोड गुलाल</div>
-        <span class="status-chip"><i class="fas fa-code"></i> हरा</span>
-    </div>
-    <div class="team-row">
-        <div class="row-left"><span class="sn-badge">1️⃣2️⃣</span><span class="name-badge">Shubhangi singh</span><span class="desig-badge">Admission counsellor</span></div>
-        <div class="tagline-modal-trigger" onclick="showModal('💖 SHUBHANGI: एडमिशन में रंग जमे, हर दिल में होली बजे! 💖\n🌸 HAPPY HOLI ADVANCED 🌸')"><i class="fas fa-heart"></i> दिल में रंग</div>
-        <span class="status-chip"><i class="fas fa-gem"></i> पर्पल</span>
-    </div>
-    <div class="team-row">
-        <div class="row-left"><span class="sn-badge">1️⃣3️⃣</span><span class="name-badge">Sonali Rathour</span><span class="desig-badge">Telecounceller</span></div>
-        <div class="tagline-modal-trigger" onclick="showModal('🎧 SONALI: टेलीकाउंसलर रंग उड़ाए, दूर से ही गुलाल लगाए! 🎧\n🌸 HAPPY HOLI ADVANCED 🌸')"><i class="fas fa-headset"></i> दूर से रंग</div>
-        <span class="status-chip"><i class="fas fa-headphones"></i> आड़ू</span>
-    </div>
-    <div class="team-row">
-        <div class="row-left"><span class="sn-badge">1️⃣4️⃣</span><span class="name-badge">Vedika Tiwari</span><span class="desig-badge">Operation Manager</span></div>
-        <div class="tagline-modal-trigger" onclick="showModal('💃 VEDIKA: ऑपरेशन मैनेजर मस्त, रंगों के संग डांस! 💃\n🌸 HAPPY HOLI ADVANCED 🌸')"><i class="fas fa-chart-pie"></i> ऑपरेशन डांस</div>
-        <span class="status-chip"><i class="fas fa-chart-simple"></i> मैजेंटा</span>
-    </div>
-    <!-- DEEPANJALI (at end) -->
-    <div class="team-row">
-        <div class="row-left"><span class="sn-badge">1️⃣5️⃣</span><span class="name-badge">Deepanjali Pal</span><span class="desig-badge">React Developer</span></div>
-        <div class="tagline-modal-trigger" onclick="showModal('⚛️ DEEPANJALI: components में भरे colour, रिएक्ट संग खेले होली! ⚛️\n🌸 HAPPY HOLI ADVANCED 🌸')"><i class="fas fa-laptop-code"></i> रिएक्ट रंग</div>
-        <span class="status-chip"><i class="fas fa-sun"></i> पीला रंग</span>
-    </div>
-    <!-- ANANYA (last) -->
-    <div class="team-row">
-        <div class="row-left"><span class="sn-badge">1️⃣6️⃣</span><span class="name-badge">Ananya Gupta</span><span class="desig-badge">React Developer Intern</span></div>
-        <div class="tagline-modal-trigger" onclick="showModal('💮 ANANYA: कोड में colour भरे, internship में रंग जमे! 💮\n🌸 HAPPY HOLI ADVANCED 🌸')"><i class="fas fa-code"></i> इंटर्न रंग</div>
-        <span class="status-chip"><i class="fas fa-palette"></i> गुलाबी गुलाल</span>
-    </div>
-
-    <div class="summary-banner">
-        <span><i class="fas fa-palette"></i> पूरी टीम 1-16 (Deepanjali & Ananya last) <i class="fas fa-paint-brush"></i></span>
-        <span class="holi-tag" style="background:#ffb96b;">🔥 रंग समाप्त नहीं 🔥</span>
-    </div>
-
-    <!-- GAME ZONE -->
-    <div class="game-zone-blast">
-        <h3><i class="fas fa-water"></i> होली बूम गेम <i class="fas fa-gun"></i></h3>
-        <div class="game-grid">
-            <div class="game-card-blast" onclick="showModal('🔥 BHANG KE LADOO SPLASH! पूरी टीम पर रंग 🔥')"><i class="fas fa-candy-cane"></i> भंग लड्डू</div>
-            <div class="game-card-blast" onclick="showModal('🔫 PICHKARI FIRING START! ऐसा रंग कि दिमाग घूमे! 🔫')"><i class="fas fa-gun"></i> पिचकारी बम</div>
-            <div class="game-card-blast" onclick="showModal('💣 गुब्बारे फोड़ो – रंग बरसाओ! 💣')"><i class="fas fa-balloon"></i> गुब्बारा रंग</div>
-            <div class="game-card-blast" onclick="showModal('🥤 ठंडाई पी के रंग में डूबो! 🥤')"><i class="fas fa-mug-hot"></i> ठंडाई ब्लास्ट</div>
+        <!-- 2 Ashruti -->
+        <div class="row team-row g-2">
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="sn-badge">2️⃣</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="name-badge">Ashruti Pradhan</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="desig-badge">Digital Marketing Mgr</span></div>
+            <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-auto"><div class="tagline-click" onclick="showModal('🌈 ASHRUTI: डिजिटल रंगों की धूम, हर campaign में gulal! 🌈\n🌸 HAPPY HOLI 🌸')"><i class="fas fa-chart-line"></i> डिजिटल गुलाल</div></div>
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="status-chip"><i class="fas fa-bolt"></i> नीला</span></div>
         </div>
-        <div class="super-blast" onclick="showModal('🌸🌸 HAPPY HOLI IN ADVANCED! TEAM FIRANGI RANGPUNCH 🌸🌸')">
-            💥 FULL COLOUR MODAL: HAPPY HOLI 💥
+        <!-- 3 Ashutosh -->
+        <div class="row team-row g-2">
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="sn-badge">3️⃣</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="name-badge">Ashutosh k Rawat</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="desig-badge">BD manager</span></div>
+            <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-auto"><div class="tagline-click" onclick="showModal('🧡 ASHUTOSH: बिज़नेस रंग दे केसरिया, होली में धमाल! 🧡\n🌸 HAPPY HOLI 🌸')"><i class="fas fa-handshake"></i> बिज़नेस केसर</div></div>
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="status-chip"><i class="fas fa-leaf"></i> केसरी</span></div>
         </div>
-    </div>
+        <!-- 4 Divya -->
+        <div class="row team-row g-2">
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="sn-badge">4️⃣</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="name-badge">Divya Tiwari</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="desig-badge">Senior Counselor</span></div>
+            <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-auto"><div class="tagline-click" onclick="showModal('💬 DIVYA: सीनियर काउंसलर रंग बिखेरे, हर समस्या दूर! 💬\n🌸 HAPPY HOLI 🌸')"><i class="fas fa-comment-dots"></i> काउंसलर रंग</div></div>
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="status-chip"><i class="fas fa-star"></i> सुनहरा</span></div>
+        </div>
+        <!-- 5 Nandani -->
+        <div class="row team-row g-2">
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="sn-badge">5️⃣</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="name-badge">Nandani Vishwakarma</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="desig-badge">Operation Exclusive</span></div>
+            <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-auto"><div class="tagline-click" onclick="showModal('⚙️ NANDANI: ऑपरेशन में रंग बरसे, exclusive तरीके से! ⚙️\n🌸 HAPPY HOLI 🌸')"><i class="fas fa-gears"></i> ऑपरेशन रंग</div></div>
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="status-chip"><i class="fas fa-cog"></i> सिल्वर</span></div>
+        </div>
+        <!-- 6 Pooja -->
+        <div class="row team-row g-2">
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="sn-badge">6️⃣</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="name-badge">Pooja Verma</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="desig-badge">Software Engineer</span></div>
+            <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-auto"><div class="tagline-click" onclick="showModal('🐞 POOJA: सॉफ्टवेयर संग खेले होली, बग को मारे गुलाल! 🐞\n🌸 HAPPY HOLI 🌸')"><i class="fas fa-terminal"></i> कोड गुलाल</div></div>
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="status-chip"><i class="fas fa-crown"></i> pink glitter</span></div>
+        </div>
+        <!-- 7 Priya -->
+        <div class="row team-row g-2">
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="sn-badge">7️⃣</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="name-badge">Priya Pal</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="desig-badge">Admission counselor</span></div>
+            <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-auto"><div class="tagline-click" onclick="showModal('📚 PRIYA: एडमिशन कराए रंगीन, हर स्टूडेंट दीवानी! 📚\n🌸 HAPPY HOLI 🌸')"><i class="fas fa-door-open"></i> एडमिशन रंग</div></div>
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="status-chip"><i class="fas fa-phone"></i> वायलेट</span></div>
+        </div>
+        <!-- 8 Rajani (again, but already shown as leader, including for completeness) -->
+        <div class="row team-row g-2">
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="sn-badge">8️⃣</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="name-badge">Rajani Gupta</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="desig-badge">Centre Manager</span></div>
+            <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-auto"><div class="tagline-click" onclick="showModal('👑 RAJANI: सेंटर मैनेजर रानी, सबको लगे पानी-पानी! 👑\n🌸 HAPPY HOLI 🌸')"><i class="fas fa-chess-queen"></i> टीम की रानी</div></div>
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="status-chip"><i class="fas fa-building"></i> लाल</span></div>
+        </div>
+        <!-- 9 Rashmi -->
+        <div class="row team-row g-2">
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="sn-badge">9️⃣</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="name-badge">Rashmi Tripathi</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="desig-badge">Tele Caller</span></div>
+            <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-auto"><div class="tagline-click" onclick="showModal('📞 RASHMI: टेली पर बरसे रंग, कॉल पर ही उड़े गुलाल! 📞\n🌸 HAPPY HOLI 🌸')"><i class="fas fa-phone-alt"></i> टेली रंग</div></div>
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="status-chip"><i class="fas fa-phone"></i> पीला</span></div>
+        </div>
+        <!-- 10 Sharry -->
+        <div class="row team-row g-2">
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="sn-badge">🔟</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="name-badge">Sharry Saluja</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="desig-badge">Academic Counselor</span></div>
+            <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-auto"><div class="tagline-click" onclick="showModal('🎓 SHARRY: एकेडमिक रंग दिखाए, हर छात्र को रंग में लाए! 🎓\n🌸 HAPPY HOLI 🌸')"><i class="fas fa-graduation-cap"></i> एकेडमिक रंग</div></div>
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="status-chip"><i class="fas fa-book"></i> नीला</span></div>
+        </div>
+        <!-- 11 Shivam -->
+        <div class="row team-row g-2">
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="sn-badge">1️⃣1️⃣</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="name-badge">Shivam Maurya</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="desig-badge">Software Engineer</span></div>
+            <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-auto"><div class="tagline-click" onclick="showModal('👨‍💻 SHIVAM: एंजिनियर का रंग निराला, कोड में बहता गुलाला! 👨‍💻\n🌸 HAPPY HOLI 🌸')"><i class="fas fa-microchip"></i> कोड गुलाल</div></div>
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="status-chip"><i class="fas fa-code"></i> हरा</span></div>
+        </div>
+        <!-- 12 Shubhangi -->
+        <div class="row team-row g-2">
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="sn-badge">1️⃣2️⃣</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="name-badge">Shubhangi singh</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="desig-badge">Admission counsellor</span></div>
+            <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-auto"><div class="tagline-click" onclick="showModal('💖 SHUBHANGI: एडमिशन में रंग जमे, हर दिल में होली बजे! 💖\n🌸 HAPPY HOLI 🌸')"><i class="fas fa-heart"></i> दिल में रंग</div></div>
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="status-chip"><i class="fas fa-gem"></i> पर्पल</span></div>
+        </div>
+        <!-- 13 Sonali -->
+        <div class="row team-row g-2">
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="sn-badge">1️⃣3️⃣</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="name-badge">Sonali Rathour</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="desig-badge">Telecounceller</span></div>
+            <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-auto"><div class="tagline-click" onclick="showModal('🎧 SONALI: टेलीकाउंसलर रंग उड़ाए, दूर से ही गुलाल लगाए! 🎧\n🌸 HAPPY HOLI 🌸')"><i class="fas fa-headset"></i> दूर से रंग</div></div>
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="status-chip"><i class="fas fa-headphones"></i> आड़ू</span></div>
+        </div>
+        <!-- 14 Vedika -->
+        <div class="row team-row g-2">
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="sn-badge">1️⃣4️⃣</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="name-badge">Vedika Tiwari</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="desig-badge">Operation Manager</span></div>
+            <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-auto"><div class="tagline-click" onclick="showModal('💃 VEDIKA: ऑपरेशन मैनेजर मस्त, रंगों के संग डांस! 💃\n🌸 HAPPY HOLI 🌸')"><i class="fas fa-chart-pie"></i> ऑपरेशन डांस</div></div>
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="status-chip"><i class="fas fa-chart-simple"></i> मैजेंटा</span></div>
+        </div>
+        <!-- 15 DEEPANJALI (at end) -->
+        <div class="row team-row g-2">
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="sn-badge">1️⃣5️⃣</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="name-badge">Deepanjali Pal</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="desig-badge">React Developer</span></div>
+            <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-auto"><div class="tagline-click" onclick="showModal('⚛️ DEEPANJALI: components में भरे colour, रिएक्ट संग खेले होली! ⚛️\n🌸 HAPPY HOLI 🌸')"><i class="fas fa-laptop-code"></i> रिएक्ट रंग</div></div>
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="status-chip"><i class="fas fa-sun"></i> पीला रंग</span></div>
+        </div>
+        <!-- 16 ANANYA (very last) -->
+        <div class="row team-row g-2">
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="sn-badge">1️⃣6️⃣</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="name-badge">Ananya Gupta</span></div>
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-auto"><span class="desig-badge">React Developer Intern</span></div>
+            <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-auto"><div class="tagline-click" onclick="showModal('💮 ANANYA: कोड में colour भरे, internship में रंग जमे! 💮\n🌸 HAPPY HOLI 🌸')"><i class="fas fa-code"></i> इंटर्न रंग</div></div>
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-auto"><span class="status-chip"><i class="fas fa-palette"></i> गुलाबी गुलाल</span></div>
+        </div>
 
-    <footer>
-        <i class="fas fa-drum"></i> रंग उड़ेलो, मस्ती करो – HAPPY HOLI ADVANCED! <i class="fas fa-drum"></i>
-    </footer>
+        <!-- summary banner -->
+        <div class="summary-banner d-flex flex-wrap justify-content-between align-items-center">
+            <span><i class="fas fa-palette"></i> टीम 1-16 (दीपांजलि & अनन्या अंत में)</span>
+            <span class="badge bg-warning p-3 fs-5">🔥 रंग बरसे 🔥</span>
+        </div>
+
+        <!-- GAME ZONE (Bootstrap row) -->
+        <div class="game-zone-clean">
+            <h3 class="text-center display-5 fw-bold bg-warning p-3 rounded-pill d-inline-block px-5 mx-auto"><i class="fas fa-water"></i> होली गेम <i class="fas fa-gun"></i></h3>
+            <div class="row g-4 mt-3 justify-content-center">
+                <div class="col-md-3 col-6"><div class="game-item" onclick="showModal('🔥 BHANG KE LADOO SPLASH! पूरी टीम पर रंग 🔥')"><i class="fas fa-candy-cane"></i> भंग लड्डू</div></div>
+                <div class="col-md-3 col-6"><div class="game-item" onclick="showModal('🔫 PICHKARI FIRING START! ऐसा रंग कि दिमाग घूमे! 🔫')"><i class="fas fa-gun"></i> पिचकारी बम</div></div>
+                <div class="col-md-3 col-6"><div class="game-item" onclick="showModal('💣 गुब्बारे फोड़ो – रंग बरसाओ! 💣')"><i class="fas fa-balloon"></i> गुब्बारा रंग</div></div>
+                <div class="col-md-3 col-6"><div class="game-item" onclick="showModal('🥤 ठंडाई पी के रंग में डूबो! 🥤')"><i class="fas fa-mug-hot"></i> ठंडाई ब्लास्ट</div></div>
+            </div>
+            <div class="text-center mt-5">
+                <div class="super-blast-btn" onclick="showModal('🌸🌸 HAPPY HOLI IN ADVANCED! TEAM FIRANGI 🌸🌸')">
+                    💥 FULL COLOUR MODAL: HAPPY HOLI 💥
+                </div>
+            </div>
+        </div>
+
+        <footer class="text-center mt-5">
+            <i class="fas fa-drum"></i> HAPPY HOLI ADVANCED – TEAM FIRANGI <i class="fas fa-drum"></i>
+        </footer>
+    </div>
 </div>
 
+<!-- Bootstrap JS (not strictly needed but for any toggles) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     function showModal(text) {
         const modal = document.getElementById('fullColorModal');
         const modalText = document.getElementById('modalText');
-        modalText.innerHTML = text + '<br><span style="font-size:3rem; margin-top:30px;">✨ click anywhere to close ✨</span>';
+        modalText.innerHTML = text + '<br><span style="font-size:2rem; margin-top:20px;">✨ कहीं भी दबाएँ ✨</span>';
         modal.classList.add('show');
     }
-    // close modal when clicking on background already handled by onclick on modal
 </script>
-
-<!-- ensure Deepanjali & Ananya are truly at bottom (visually last) -->
 </body>
 </html>
